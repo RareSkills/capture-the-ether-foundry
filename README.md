@@ -7,4 +7,4 @@ Vulnerability: Uninitialized storage pointer
 - 13Donations
 - 14FiftyYears
 
-8PredictBlockhash - Needs to fork from mainnetwork to produce random blockhash(block.number) or else it well always be zero
+8PredictBlockhash - run it with "forge test --fork-url https://1rpc.io/eth -vvvv"
