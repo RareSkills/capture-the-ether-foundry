@@ -1,0 +1,3 @@
+[submodule "TokenBank/lib/forge-std"]
+	path = TokenBank/lib/forge-std
+	url = https://github.com/foundry-rs/forge-std
