@@ -10,14 +10,18 @@ contract FiftyYearsTest is Test {
     address constant Player1 = address(0x5E11E7);
 
     function setUp() public {
+        // Deploy contracts
         fiftyYears = (new FiftyYears){value: 1 ether}();
         exploitContract = (new ExploitContract){value: 1 ether}(fiftyYears);
     }
 
     function testExploitContract() public {
-        //Write your codes below this line
+        // Put your solution here
 
-        // Do not modify the codes below
+        _checkSolved();
+    }
+
+    function _checkSolved() internal {
         assertTrue(fiftyYears.isComplete(), "Challenge Incomplete");
     }
 

@@ -9,18 +9,22 @@ contract TokenSaleTest is Test {
     ExploitContract public exploitContract;
 
     function setUp() public {
+        // Deploy contracts
         tokenSale = (new TokenSale){value: 1 ether}();
         exploitContract = new ExploitContract(tokenSale);
         vm.deal(address(exploitContract), 4 ether);
     }
 
-// Use the instance of tokenSale and exploitContract
+    // Use the instance of tokenSale and exploitContract
     function testIncrement() public {
-        // Write your codes below this line
+        // Put your solution here
 
-        // Do not modify the codes below this line
+        _checkSolved();
+    }
+
+    function _checkSolved() internal {
         assertTrue(tokenSale.isComplete(), "Challenge Incomplete");
     }
-    receive() external payable {}
 
+    receive() external payable {}
 }

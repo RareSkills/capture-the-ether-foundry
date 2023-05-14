@@ -13,7 +13,7 @@ contract GuessTheSecretNumber {
         return address(this).balance == 0;
     }
 
-    function guess(uint8 n) public payable returns(bool) {
+    function guess(uint8 n) public payable returns (bool) {
         require(msg.value == 1 ether);
 
         if (keccak256(abi.encodePacked(n)) == answerHash) {
@@ -29,8 +29,17 @@ contract ExploitContract {
     bytes32 answerHash =
         0xdb81b4d58595fbbbb592d3661a34cdca14d7ab379441400cbfa1b78bc447c365;
 
-    function Exploiter() public view returns(uint8) {
+    function Exploiter() public view returns (uint8) {
+        // Put your exploit code here
+        
+        uint8 n;
 
+        for (uint8 i; i <= 256; i++) {
+            if (keccak256(abi.encodePacked(i)) == answerHash) {
+                n = i;
+                break;
+            }
+        }
+        return n;
     }
-    
 }

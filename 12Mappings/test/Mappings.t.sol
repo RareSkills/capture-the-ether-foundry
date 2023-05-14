@@ -9,17 +9,21 @@ contract MappingsTest is Test {
     ExploitContract public exploitContract;
 
     function setUp() public {
+        // Deploy contracts
         mappings = new Mappings();
         exploitContract = new ExploitContract(mappings);
     }
 
-// use the instance mappingss and exploitContract
+    // Use the instance mappings and exploitContract
     function testIncrement() public {
-        // Write your codes below this line
+        // Put your solution here
 
+        _checkSolved();
+    }
 
-        // Do not modify the codes below this line
+    function _checkSolved() internal {
         assertTrue(mappings.isComplete(), "Challenge Incomplete");
     }
-    receive() external payable{}
+
+    receive() external payable {}
 }

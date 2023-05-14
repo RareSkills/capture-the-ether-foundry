@@ -9,21 +9,30 @@ contract GuessNewNumberTest is Test {
     GuessNewNumber public guessNewNumber;
     ExploitContract public exploitContract;
 
-    function setUp() public {}
-
-    function testNumber(uint256 blocnumber, uint256 bloctimestamp) public {
-        vm.assume(blocnumber != 0);
-
-        vm.roll(blocnumber);
-        vm.warp(bloctimestamp);
-        
-        // set up
+    function setUp() public {
+        // Deploy contracts
         guessNewNumber = (new GuessNewNumber){value: 1 ether}();
         exploitContract = new ExploitContract();
-
-        // Do not modify the codes below
-        guessNewNumber.guess{value: 1 ether}(exploitContract.Exploit());
-        assertTrue(guessNewNumber.isComplete(), "Balance is supposed to be zero");
     }
-    receive() external payable{}
+
+    function testNumber(uint256 blockNumber, uint256 blockTimestamp) public {
+        // Prevent zero inputs
+        vm.assume(blockNumber != 0);
+        vm.assume(blockTimestamp != 0);
+        // Set block number and timestamp
+        vm.roll(blockNumber);
+        vm.warp(blockTimestamp);
+
+        // Put your solution here
+        guessNewNumber.guess{value: 1 ether}(exploitContract.Exploit());
+    }
+
+    function _checkSolved() internal {
+        assertTrue(
+            guessNewNumber.isComplete(),
+            "Balance is supposed to be zero"
+        );
+    }
+
+    receive() external payable {}
 }

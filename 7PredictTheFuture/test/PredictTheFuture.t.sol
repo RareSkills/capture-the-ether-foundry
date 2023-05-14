@@ -10,18 +10,23 @@ contract PredictTheFutureTest is Test {
     ExploitContract public exploitContract;
 
     function setUp() public {
+        // Deploy contracts
         predictTheFuture = (new PredictTheFuture){value: 1 ether}();
-        exploitContract = new ExploitContract();
+        exploitContract = new ExploitContract(predictTheFuture);
     }
 
-    // Use vm.roll() and vm.warp() to change the block.number and block.timestamp respectively
     function testGuess() public {
-        vm.roll(104293); // Do not change this code
-        vm.warp(93582192); // Do not change this code
-        
-        // write your codes below below this line
+        // Set block number and timestamp
+        // Use vm.roll() and vm.warp() to change the block.number and block.timestamp respectively
+        vm.roll(104293);
+        vm.warp(93582192);
 
-        // Do not modify the codes below this line
+        // Put your solution here
+
+        _checkSolved();
+    }
+
+    function _checkSolved() internal {
         assertTrue(predictTheFuture.isComplete(), "Challenge Incomplete");
     }
 

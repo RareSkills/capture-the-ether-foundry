@@ -14,9 +14,12 @@ contract DonationsTest is Test {
     }
 
     function testIncrement() public {
-        // Write your codes below this line
-        
-        // Do not modify the codes below
+        // Put your solution here
+
+        _checkSolved();
+    }
+
+    function _checkSolved() internal {
         assertTrue(donation.isComplete(), "Challenge Incomplete");
     }
 

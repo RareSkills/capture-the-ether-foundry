@@ -14,9 +14,13 @@ contract TankBankTest is Test {
     function testExploit() public {
         tokenBankChallenge = new TokenBankChallenge(player);
         tokenBankAttacker = new TokenBankAttacker(address(tokenBankChallenge));
-        // Test your exploit contract below
 
-        
+        // Put your solution here
+
+        _checkSolved();
+    }
+
+    function _checkSolved() internal {
         assertTrue(tokenBankChallenge.isComplete(), "Challenge Incomplete");
     }
 }

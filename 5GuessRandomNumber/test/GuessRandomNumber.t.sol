@@ -11,25 +11,24 @@ contract GuessRandomNumberTest is Test {
 
     function setUp() public {}
 
-    function testAnswer(uint256 blocnumber, uint256 bloctimestamp) public {
-        vm.assume(blocnumber !=0);
-        vm.assume(bloctimestamp !=0);
-        //time frame
-        vm.roll(blocnumber);
-        vm.warp(bloctimestamp);
+    function testAnswer(uint256 blockNumber, uint256 blockTimestamp) public {
+        // Prevent zero inputs
+        vm.assume(blockNumber != 0);
+        vm.assume(blockTimestamp != 0);
+        // Set block number and timestamp
+        vm.roll(blockNumber);
+        vm.warp(blockTimestamp);
 
-        //Set up
+        // Put your solution here
         guessRandomNumber = (new GuessRandomNumber){value: 1 ether}();
         exploitContract = new ExploitContract();
-
-        // Your code below
         uint8 guess = exploitContract.Exploit();
-
-
         guessRandomNumber.guess{value: 1 ether}(guess);
 
-        // Do not modify the lines of code below
+        _checkSolved();
+    }
 
+    function _checkSolved() internal {
         assertTrue(guessRandomNumber.isComplete(), "Wrong Number");
     }
 

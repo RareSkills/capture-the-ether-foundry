@@ -46,7 +46,6 @@ contract PredictTheFuture {
     }
 }
 
-// Write your exploit contract
 contract ExploitContract {
     PredictTheFuture public predictTheFuture;
 
@@ -54,5 +53,5 @@ contract ExploitContract {
         predictTheFuture = _predictTheFuture;
     }
 
-    //write your exploit functions below
+    // Write your exploit code below
 }

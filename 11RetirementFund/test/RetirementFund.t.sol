@@ -9,6 +9,7 @@ contract RetirementFundTest is Test {
     ExploitContract public exploitContract;
 
     function setUp() public {
+        // Deploy contracts
         retirementFund = (new RetirementFund){value: 1 ether}(address(this));
         exploitContract = new ExploitContract(retirementFund);
     }
@@ -16,13 +17,14 @@ contract RetirementFundTest is Test {
     function testIncrement() public {
         vm.deal(address(exploitContract), 1 ether);
         // Test your Exploit Contract below
-        // use the instance retirementFund and exploitContract
-        
-        // Write your codes below this line
+        // Use the instance retirementFund and exploitContract
 
+        // Put your solution here
 
-        
-        // Do not modify the codes below this line
+        _checkSolved();
+    }
+
+    function _checkSolved() internal {
         assertTrue(retirementFund.isComplete(), "Challenge Incomplete");
     }
 
