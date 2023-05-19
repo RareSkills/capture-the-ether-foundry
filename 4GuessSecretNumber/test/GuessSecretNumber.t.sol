@@ -20,12 +20,12 @@ contract GuessSecretNumberTest is Test {
     function testFindSecretNumber() public {
         // Put solution here
         uint8 secretNumber = exploitContract.Exploiter();
-        _checkSolved();
+        _checkSolved(secretNumber);
     }
 
-    function _checkSolved() internal {
+    function _checkSolved(uint8 _secretNumber) internal {
         assertTrue(
-            guessTheSecretNumber.guess{value: 1 ether}(secretNumber),
+            guessTheSecretNumber.guess{value: 1 ether}(_secretNumber),
             "Wrong Number"
         );
         assertTrue(guessTheSecretNumber.isComplete(), "Challenge Incomplete");
