@@ -23,7 +23,7 @@ contract GuessNewNumberTest is Test {
         vm.roll(blockNumber);
         vm.warp(blockTimestamp);
 
-        // Put your solution here
+        // Place your solution here
         guessNewNumber.guess{value: 1 ether}(exploitContract.Exploit());
     }
 

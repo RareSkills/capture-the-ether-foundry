@@ -19,7 +19,7 @@ contract GuessRandomNumberTest is Test {
         vm.roll(blockNumber);
         vm.warp(blockTimestamp);
 
-        // Put your solution here
+        // Place your solution here
         guessRandomNumber = (new GuessRandomNumber){value: 1 ether}();
         exploitContract = new ExploitContract();
         uint8 guess = exploitContract.Exploit();
