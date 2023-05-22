@@ -16,7 +16,7 @@ contract TokenWhaleTest is Test {
     function setUp() public {
         // Deploy contracts
         tokenWhale = new TokenWhale(address(this));
-        exploitContract = new ExploitContract(tokenWhale, David);
+        exploitContract = new ExploitContract(tokenWhale);
     }
 
     // Use the instance tokenWhale and exploitContract

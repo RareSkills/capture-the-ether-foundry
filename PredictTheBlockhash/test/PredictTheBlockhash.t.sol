@@ -4,16 +4,16 @@ pragma solidity ^0.8.13;
 import "forge-std/Test.sol";
 import "forge-std/console.sol";
 
-import "../src/PredictTheBlockHash.sol";
+import "../src/PredictTheBlockhash.sol";
 
 contract PredictTheBlockhashTest is Test {
-    PredictTheBlockHash public predictTheBlockHash;
+    PredictTheBlockhash public predictTheBlockhash;
     ExploitContract public exploitContract;
 
     function setUp() public {
         // Deploy contracts
-        predictTheBlockHash = (new PredictTheBlockHash){value: 1 ether}();
-        exploitContract = new ExploitContract(predictTheBlockHash);
+        predictTheBlockhash = (new PredictTheBlockhash){value: 1 ether}();
+        exploitContract = new ExploitContract(predictTheBlockhash);
     }
 
     function testExploit() public {
@@ -29,7 +29,7 @@ contract PredictTheBlockhashTest is Test {
     }
 
     function _checkSolved() internal {
-        assertTrue(predictTheBlockHash.isComplete(), "Challenge Incomplete");
+        assertTrue(predictTheBlockhash.isComplete(), "Challenge Incomplete");
     }
 
     receive() external payable {}
