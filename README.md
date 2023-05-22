@@ -1,5 +1,4 @@
-# tester
-
+# Capture The Ether
 
 ## 8PredictBlockhash:
 
