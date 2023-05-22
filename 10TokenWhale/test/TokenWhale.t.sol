@@ -9,9 +9,9 @@ contract TokenWhaleTest is Test {
     TokenWhale public tokenWhale;
     ExploitContract public exploitContract;
     // Feel free to use these random addresses
-    address constant David = address(0x5E11E7);
-    address constant Goliath = address(0x5E11E8);
-    address constant Saul = address(0x5E11E9);
+    address constant Alice = address(0x5E12E7);
+    address constant Bob = address(0x5311E8);
+    address constant Pete = address(0x5E41E9);
 
     function setUp() public {
         // Deploy contracts
