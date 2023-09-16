@@ -24,14 +24,13 @@ contract GuessNewNumberTest is Test {
         vm.warp(blockTimestamp);
 
         // Place your solution here
-        guessNewNumber.guess{value: 1 ether}(exploitContract.Exploit());
+        uint8 answer = exploitContract.Exploit();
+        _checkSolved(answer);
     }
 
-    function _checkSolved() internal {
-        assertTrue(
-            guessNewNumber.isComplete(),
-            "Balance is supposed to be zero"
-        );
+    function _checkSolved(uint8 _newNumber) internal {
+        assertTrue(guessNewNumber.guess{value: 1 ether}(_newNumber), "Wrong Number");
+        assertTrue(guessNewNumber.isComplete(), "Balance is supposed to be zero");
     }
 
     receive() external payable {}
