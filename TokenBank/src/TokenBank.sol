@@ -104,10 +104,6 @@ contract TokenBankChallenge {
         balanceOf[player] = 500000 * 10 ** 18; // half for you
     }
 
-    function addcontract(address _contract) public {
-        balanceOf[_contract] = 500000 * 10 ** 18;
-    }
-
     function isComplete() public view returns (bool) {
         return token.balanceOf(address(this)) == 0;
     }
