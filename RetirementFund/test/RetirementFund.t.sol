@@ -7,10 +7,11 @@ import "../src/RetirementFund.sol";
 contract RetirementFundTest is Test {
     RetirementFund public retirementFund;
     ExploitContract public exploitContract;
+    address player = makeAddr("player");
 
     function setUp() public {
         // Deploy contracts
-        retirementFund = (new RetirementFund){value: 1 ether}(address(this));
+        retirementFund = (new RetirementFund){value: 1 ether}(player);
         exploitContract = new ExploitContract(retirementFund);
     }
 
@@ -18,7 +19,7 @@ contract RetirementFundTest is Test {
         vm.deal(address(exploitContract), 1 ether);
         // Test your Exploit Contract below
         // Use the instance retirementFund and exploitContract
-
+        vm.startPrank(player);
         // Put your solution here
 
         _checkSolved();
